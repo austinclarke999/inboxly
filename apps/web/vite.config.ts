@@ -7,7 +7,8 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       input: {
-        main: 'public/landing.html',
+        main: 'index.html',
+        landing: 'public/landing.html',
         dashboard: 'public/dashboard.html',
         inbox: 'public/inbox.html',
         subscriptions: 'public/subscriptions.html',
