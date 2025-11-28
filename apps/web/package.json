@@ -10,24 +10,24 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@prisma/client": "^7.0.1",
-    "@vercel/node": "^5.5.13",
-    "dotenv": "^16.6.1",
+    "@prisma/client": "^5.10.2",
+    "@vercel/node": "^3.0.0",
+    "dotenv": "^16.4.5",
     "framer-motion": "^11.0.0",
-    "googleapis": "^166.0.0",
+    "googleapis": "^133.0.0",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
-    "@types/node": "^24.10.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.17.0",
-    "prisma": "^7.0.1",
-    "typescript": "^5.6.3",
-    "vite": "^7.2.4"
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.2.61",
+    "@types/react-dom": "^18.2.19",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "prisma": "^5.10.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4"
   }
 }
