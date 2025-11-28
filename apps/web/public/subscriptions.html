@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriptions - Inboxly</title>
+    <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./subscriptions.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-content">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Inboxly</h1>
+                        <p>AI Email Assistant</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="./dashboard.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="./inbox.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+                        <path
+                            d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
+                        </path>
+                    </svg>
+                    <span>Inbox</span>
+                </a>
+                <a href="./subscriptions.html" class="nav-item active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                    <span>Subscriptions</span>
+                </a>
+                <a href="./settings.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M12 1v6m0 6v6m9-9h-6m-6 0H3m15.364 6.364l-4.243-4.243m-6.364 0L3.636 17.364m12.728 0l-4.243-4.243m-6.364 0L3.636 6.636">
+                        </path>
+                    </svg>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="ai-status">
+                <div class="status-card">
+                    <div class="status-content">
+                        <div class="status-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <div class="status-text">
+                            <p>Gemini AI</p>
+                            <p>Active</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="search-bar">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search subscriptions..." onkeyup="handleSearch()">
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <button class="user-menu">
+                        <div class="user-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="user-info">
+                            <p>Loading...</p>
+                            <p>user@example.com</p>
+                        </div>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">Subscriptions</h1>
+                        <p class="page-subtitle">Track and manage your email subscriptions and billing</p>
+                    </div>
+                </div>
+
+                <!-- Spending Summary -->
+                <div class="spending-grid">
+                    <div class="spending-card">
+                        <div class="spending-header">
+                            <div class="spending-icon green">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="spending-label">Monthly Total</p>
+                                <p class="spending-value" id="monthlyTotal">$0.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spending-card">
+                        <div class="spending-header">
+                            <div class="spending-icon blue">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="spending-label">Annual Forecast</p>
+                                <p class="spending-value" id="annualForecast">$0.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spending-card">
+                        <div class="spending-header">
+                            <div class="spending-icon purple">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="spending-label">Active Subscriptions</p>
+                                <p class="spending-value" id="activeCount">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subscriptions List -->
+                <div class="subscription-list">
+                    <div class="subscription-header">
+                        <h2 class="card-title">Active Subscriptions</h2>
+                        <button class="btn btn-danger" onclick="handleBulkUnsubscribe()" id="bulkUnsubBtn" disabled>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path
+                                    d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                </path>
+                            </svg>
+                            Bulk Unsubscribe
+                        </button>
+                    </div>
+
+                    <!-- Subscription Items Container -->
+                    <div id="subscriptionContainer">
+                        <!-- Loading state -->
+                        <div class="loading-state" id="loadingState">
+                            <p>Loading subscriptions...</p>
+                        </div>
+
+                        <!-- Empty state -->
+                        <div class="empty-state" id="emptyState" style="display: none;">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                            </svg>
+                            <h3>No subscriptions found</h3>
+                            <p>Sync your emails to discover subscriptions</p>
+                        </div>
+
+                        <!-- Subscriptions will be inserted here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="./api.js"></script>
+    <script>
+        // Global state
+        let allSubscriptions = [];
+        let filteredSubscriptions = [];
+        let searchQuery = '';
+        let selectedSubscriptions = new Set();
+
+        // Initialize page
+        window.addEventListener('DOMContentLoaded', async () => {
+            // Require authentication
+            requireAuth();
+
+            try {
+                // Load user information
+                const user = await getCurrentUser();
+                const userNameEl = document.querySelector('.user-info p:first-child');
+                const userEmailEl = document.querySelector('.user-info p:last-child');
+
+                if (userNameEl && user.name) {
+                    userNameEl.textContent = user.name;
+                }
+                if (userEmailEl && user.email) {
+                    userEmailEl.textContent = user.email;
+                }
+
+                // Load subscriptions
+                await loadSubscriptions();
+            } catch (error) {
+                console.error('Initialization error:', error);
+                showError('Failed to load page');
+            }
+        });
+
+        // Load subscriptions from API
+        async function loadSubscriptions() {
+            try {
+                const loadingState = document.getElementById('loadingState');
+                const emptyState = document.getElementById('emptyState');
+
+                loadingState.style.display = 'block';
+                emptyState.style.display = 'none';
+
+                const response = await getSubscriptions();
+                allSubscriptions = response.subscriptions || response || [];
+
+                if (allSubscriptions.length === 0) {
+                    loadingState.style.display = 'none';
+                    emptyState.style.display = 'block';
+                    updateSpendingSummary(0, 0, 0);
+                } else {
+                    loadingState.style.display = 'none';
+                    filterSubscriptions();
+                    calculateSpending();
+                }
+            } catch (error) {
+                console.error('Failed to load subscriptions:', error);
+                document.getElementById('loadingState').innerHTML = '<p>Failed to load subscriptions. Please try again.</p>';
+                showError('Failed to load subscriptions');
+            }
+        }
+
+        // Filter subscriptions by search
+        function filterSubscriptions() {
+            filteredSubscriptions = allSubscriptions.filter(sub => {
+                if (!searchQuery) return true;
+
+                const query = searchQuery.toLowerCase();
+                return sub.name?.toLowerCase().includes(query) ||
+                    sub.senderEmail?.toLowerCase().includes(query);
+            });
+
+            renderSubscriptions();
+        }
+
+        // Render subscriptions to DOM
+        function renderSubscriptions() {
+            const container = document.getElementById('subscriptionContainer');
+            const loadingState = document.getElementById('loadingState');
+            const emptyState = document.getElementById('emptyState');
+
+            // Clear existing subscriptions
+            const existingItems = container.querySelectorAll('.subscription-item');
+            existingItems.forEach(el => el.remove());
+
+            if (filteredSubscriptions.length === 0 && allSubscriptions.length > 0) {
+                const noResults = document.createElement('div');
+                noResults.className = 'empty-state';
+                noResults.innerHTML = `
+                    <h3>No subscriptions match your search</h3>
+                    <p>Try adjusting your search query</p>
+                `;
+                container.appendChild(noResults);
+                return;
+            }
+
+            filteredSubscriptions.forEach(sub => {
+                const subEl = createSubscriptionElement(sub);
+                container.appendChild(subEl);
+            });
+        }
+
+        // Create subscription element
+        function createSubscriptionElement(sub) {
+            const div = document.createElement('div');
+            div.className = 'subscription-item';
+            div.dataset.subscriptionId = sub.id;
+
+            const amount = sub.billingAmount || 0;
+            const period = sub.billingPeriod || 'month';
+            const nextBilling = sub.nextBillingDate ? formatDate(sub.nextBillingDate) : 'Unknown';
+            const emailCount = sub.emailCount || 0;
+            const frequency = sub.frequency || 'Monthly';
+            const isBilling = sub.hasBilling || amount > 0;
+
+            div.innerHTML = `
+                <div class="subscription-content">
+                    <div class="subscription-main">
+                        <input type="checkbox" class="checkbox" data-sub-id="${sub.id}" onchange="handleCheckboxChange()">
+                        <div class="subscription-info">
+                            <h3 class="subscription-name">${escapeHtml(sub.name || sub.senderEmail || 'Unknown')}</h3>
+                            <p class="subscription-email">${escapeHtml(sub.senderEmail || '')}</p>
+                            <div class="subscription-meta">
+                                ${isBilling ? `
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                    <span>Next billing: ${nextBilling}</span>
+                                </div>
+                                ` : ''}
+                                <div class="meta-item">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M12 6v6l4 2"></path>
+                                    </svg>
+                                    <span>${emailCount} emails • ${frequency}</span>
+                                </div>
+                                ${isBilling ? '<span class="badge badge-success">Billing</span>' : '<span class="badge badge-primary">Newsletter</span>'}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subscription-price">
+                        ${amount > 0 ? `
+                        <p class="price-amount">${formatCurrency(amount)}</p>
+                        <p class="price-period">/${period}</p>
+                        ` : '<p class="price-amount">Free</p>'}
+                    </div>
+                    <button class="btn btn-secondary" onclick="handleUnsubscribe('${sub.id}', '${escapeHtml(sub.name || sub.senderEmail)}')">Unsubscribe</button>
+                </div>
+            `;
+
+            return div;
+        }
+
+        // Calculate spending
+        function calculateSpending() {
+            let monthlyTotal = 0;
+            let activeCount = 0;
+
+            allSubscriptions.forEach(sub => {
+                if (sub.billingAmount && sub.billingAmount > 0) {
+                    const amount = parseFloat(sub.billingAmount);
+                    const period = sub.billingPeriod || 'month';
+
+                    // Convert to monthly
+                    if (period === 'year') {
+                        monthlyTotal += amount / 12;
+                    } else {
+                        monthlyTotal += amount;
+                    }
+                    activeCount++;
+                } else {
+                    activeCount++;
+                }
+            });
+
+            const annualForecast = monthlyTotal * 12;
+            updateSpendingSummary(monthlyTotal, annualForecast, activeCount);
+        }
+
+        // Update spending summary
+        function updateSpendingSummary(monthly, annual, count) {
+            document.getElementById('monthlyTotal').textContent = formatCurrency(monthly);
+            document.getElementById('annualForecast').textContent = formatCurrency(annual);
+            document.getElementById('activeCount').textContent = count;
+        }
+
+        // Handle search
+        function handleSearch() {
+            searchQuery = document.getElementById('searchInput').value;
+            filterSubscriptions();
+        }
+
+        // Handle checkbox change
+        function handleCheckboxChange() {
+            selectedSubscriptions.clear();
+            document.querySelectorAll('.subscription-item .checkbox:checked').forEach(cb => {
+                selectedSubscriptions.add(cb.dataset.subId);
+            });
+
+            const bulkBtn = document.getElementById('bulkUnsubBtn');
+            bulkBtn.disabled = selectedSubscriptions.size === 0;
+            bulkBtn.textContent = selectedSubscriptions.size > 0
+                ? `Bulk Unsubscribe (${selectedSubscriptions.size})`
+                : 'Bulk Unsubscribe';
+        }
+
+        // Handle single unsubscribe
+        async function handleUnsubscribe(subscriptionId, name) {
+            if (!confirm(`Are you sure you want to unsubscribe from "${name}"?`)) {
+                return;
+            }
+
+            try {
+                showLoading(`Unsubscribing from ${name}...`);
+                await unsubscribeFromSender(subscriptionId);
+                showSuccess(`Successfully unsubscribed from ${name}`);
+
+                // Remove from list
+                allSubscriptions = allSubscriptions.filter(s => s.id !== subscriptionId);
+                filterSubscriptions();
+                calculateSpending();
+            } catch (error) {
+                console.error('Unsubscribe error:', error);
+                showError(`Failed to unsubscribe: ${error.message}`);
+            }
+        }
+
+        // Handle bulk unsubscribe
+        async function handleBulkUnsubscribe() {
+            if (selectedSubscriptions.size === 0) return;
+
+            if (!confirm(`Are you sure you want to unsubscribe from ${selectedSubscriptions.size} subscription(s)?`)) {
+                return;
+            }
+
+            try {
+                showLoading(`Unsubscribing from ${selectedSubscriptions.size} subscriptions...`);
+                const ids = Array.from(selectedSubscriptions);
+                await bulkUnsubscribe(ids);
+                showSuccess(`Successfully unsubscribed from ${selectedSubscriptions.size} subscriptions`);
+
+                // Remove from list
+                allSubscriptions = allSubscriptions.filter(s => !selectedSubscriptions.has(s.id));
+                selectedSubscriptions.clear();
+                filterSubscriptions();
+                calculateSpending();
+                handleCheckboxChange();
+            } catch (error) {
+                console.error('Bulk unsubscribe error:', error);
+                showError(`Failed to bulk unsubscribe: ${error.message}`);
+            }
+        }
+
+        // Utility functions
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox - Inboxly</title>
+    <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./inbox.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-content">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Inboxly</h1>
+                        <p>AI Email Assistant</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="./dashboard.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="./inbox.html" class="nav-item active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+                        <path
+                            d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
+                        </path>
+                    </svg>
+                    <span>Inbox</span>
+                </a>
+                <a href="./subscriptions.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                    <span>Subscriptions</span>
+                </a>
+                <a href="./settings.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M12 1v6m0 6v6m9-9h-6m-6 0H3m15.364 6.364l-4.243-4.243m-6.364 0L3.636 17.364m12.728 0l-4.243-4.243m-6.364 0L3.636 6.636">
+                        </path>
+                    </svg>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="ai-status">
+                <div class="status-card">
+                    <div class="status-content">
+                        <div class="status-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <div class="status-text">
+                            <p>Gemini AI</p>
+                            <p>Active</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="search-bar">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search emails..." onkeyup="handleSearch()">
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <button class="user-menu">
+                        <div class="user-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="user-info">
+                            <p>Loading...</p>
+                            <p>user@example.com</p>
+                        </div>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">Inbox</h1>
+                        <p class="page-subtitle" id="emailCount">Loading emails...</p>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn btn-secondary" onclick="toggleFilter()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                            </svg>
+                            Filter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="categories" id="categories">
+                    <button class="category-btn active" onclick="filterByCategory('all')">All <span
+                            class="category-count" id="count-all">(0)</span></button>
+                    <button class="category-btn" onclick="filterByCategory('newsletter')">Newsletters <span
+                            class="category-count" id="count-newsletter">(0)</span></button>
+                    <button class="category-btn" onclick="filterByCategory('promotion')">Promotions <span
+                            class="category-count" id="count-promotion">(0)</span></button>
+                    <button class="category-btn" onclick="filterByCategory('finance')">Finance <span
+                            class="category-count" id="count-finance">(0)</span></button>
+                    <button class="category-btn" onclick="filterByCategory('social')">Social <span
+                            class="category-count" id="count-social">(0)</span></button>
+                </div>
+
+                <!-- Email List -->
+                <div class="email-list">
+                    <div class="email-list-header">
+                        <input type="checkbox" class="checkbox" id="selectAll" onchange="handleSelectAll()">
+                        <span class="select-text">Select all</span>
+                    </div>
+
+                    <!-- Email Items Container -->
+                    <div id="emailContainer">
+                        <!-- Loading state -->
+                        <div class="loading-state" id="loadingState">
+                            <p>Loading emails...</p>
+                        </div>
+
+                        <!-- Empty state -->
+                        <div class="empty-state" id="emptyState" style="display: none;">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <h3>No emails found</h3>
+                            <p>Try syncing your emails from the dashboard</p>
+                        </div>
+
+                        <!-- Emails will be inserted here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="./api.js"></script>
+    <script>
+        // Global state
+        let allEmails = [];
+        let filteredEmails = [];
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        // Initialize page
+        window.addEventListener('DOMContentLoaded', async () => {
+            // Require authentication
+            requireAuth();
+
+            try {
+                // Load user information
+                const user = await getCurrentUser();
+                const userNameEl = document.querySelector('.user-info p:first-child');
+                const userEmailEl = document.querySelector('.user-info p:last-child');
+
+                if (userNameEl && user.name) {
+                    userNameEl.textContent = user.name;
+                }
+                if (userEmailEl && user.email) {
+                    userEmailEl.textContent = user.email;
+                }
+
+                // Load emails
+                await loadEmails();
+            } catch (error) {
+                console.error('Initialization error:', error);
+                showError('Failed to load page');
+            }
+        });
+
+        // Load emails from API
+        async function loadEmails() {
+            try {
+                const loadingState = document.getElementById('loadingState');
+                const emptyState = document.getElementById('emptyState');
+                const emailContainer = document.getElementById('emailContainer');
+
+                loadingState.style.display = 'block';
+                emptyState.style.display = 'none';
+
+                const response = await getEmails();
+                allEmails = response.emails || [];
+
+                if (allEmails.length === 0) {
+                    loadingState.style.display = 'none';
+                    emptyState.style.display = 'block';
+                    updateEmailCount(0);
+                } else {
+                    loadingState.style.display = 'none';
+                    updateCategoryCounts();
+                    filterEmails();
+                }
+            } catch (error) {
+                console.error('Failed to load emails:', error);
+                document.getElementById('loadingState').innerHTML = '<p>Failed to load emails. Please try again.</p>';
+                showError('Failed to load emails');
+            }
+        }
+
+        // Filter emails by category and search
+        function filterEmails() {
+            filteredEmails = allEmails.filter(email => {
+                // Category filter
+                const categoryMatch = currentCategory === 'all' ||
+                    (email.category && email.category.toLowerCase() === currentCategory);
+
+                // Search filter
+                const searchMatch = !searchQuery ||
+                    email.subject?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    email.from?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    email.snippet?.toLowerCase().includes(searchQuery.toLowerCase());
+
+                return categoryMatch && searchMatch;
+            });
+
+            renderEmails();
+            updateEmailCount(filteredEmails.length);
+        }
+
+        // Render emails to DOM
+        function renderEmails() {
+            const container = document.getElementById('emailContainer');
+            const loadingState = document.getElementById('loadingState');
+            const emptyState = document.getElementById('emptyState');
+
+            // Clear existing emails (keep loading/empty states)
+            const existingEmails = container.querySelectorAll('.email-item');
+            existingEmails.forEach(el => el.remove());
+
+            if (filteredEmails.length === 0 && allEmails.length > 0) {
+                // No results for current filter
+                const noResults = document.createElement('div');
+                noResults.className = 'empty-state';
+                noResults.innerHTML = `
+                    <h3>No emails match your filter</h3>
+                    <p>Try adjusting your search or category filter</p>
+                `;
+                container.appendChild(noResults);
+                return;
+            }
+
+            filteredEmails.forEach(email => {
+                const emailEl = createEmailElement(email);
+                container.appendChild(emailEl);
+            });
+        }
+
+        // Create email element
+        function createEmailElement(email) {
+            const div = document.createElement('div');
+            div.className = 'email-item';
+            div.dataset.emailId = email.id;
+
+            const noiseLevel = email.noiseScore || 50;
+            const importanceLevel = email.importanceScore || 50;
+            const category = email.category || 'Other';
+
+            // Determine badge colors
+            const noiseBadgeClass = noiseLevel < 30 ? 'badge-success' : noiseLevel < 60 ? 'badge-warning' : 'badge-danger';
+            const importanceBadgeClass = importanceLevel > 70 ? 'badge-primary' : 'badge-secondary';
+
+            div.innerHTML = `
+                <div class="email-content">
+                    <input type="checkbox" class="checkbox" data-email-id="${email.id}">
+                    <div class="email-main">
+                        <div class="email-header">
+                            <p class="email-from">${escapeHtml(email.from || 'Unknown')}</p>
+                            <span class="email-time">${formatEmailTime(email.receivedAt || email.createdAt)}</span>
+                        </div>
+                        <p class="email-subject">${escapeHtml(email.subject || 'No subject')}</p>
+                        <p class="email-snippet">${escapeHtml(email.snippet || '')}</p>
+                        <div class="email-footer">
+                            <div class="email-badges">
+                                <span class="badge" style="background: rgba(30, 41, 59, 0.5); color: var(--dark-400); border-color: var(--dark-700);">${category}</span>
+                                <span class="badge ${noiseBadgeClass}">Noise: ${noiseLevel}%</span>
+                                <span class="badge ${importanceBadgeClass}">Importance: ${importanceLevel}%</span>
+                            </div>
+                            <div class="email-actions">
+                                <button class="action-btn star" onclick="handleStar('${email.id}')">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                    </svg>
+                                </button>
+                                <button class="action-btn" onclick="handleArchive('${email.id}')">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                                        <rect x="1" y="3" width="22" height="5"></rect>
+                                        <line x1="10" y1="12" x2="14" y2="12"></line>
+                                    </svg>
+                                </button>
+                                <button class="action-btn delete" onclick="handleDelete('${email.id}')">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return div;
+        }
+
+        // Update category counts
+        function updateCategoryCounts() {
+            const counts = {
+                all: allEmails.length,
+                newsletter: 0,
+                promotion: 0,
+                finance: 0,
+                social: 0
+            };
+
+            allEmails.forEach(email => {
+                const category = email.category?.toLowerCase();
+                if (counts.hasOwnProperty(category)) {
+                    counts[category]++;
+                }
+            });
+
+            Object.keys(counts).forEach(key => {
+                const el = document.getElementById(`count-${key}`);
+                if (el) el.textContent = `(${counts[key]})`;
+            });
+        }
+
+        // Update email count display
+        function updateEmailCount(count) {
+            const el = document.getElementById('emailCount');
+            if (el) {
+                el.textContent = `${count} email${count !== 1 ? 's' : ''} • AI-powered organization`;
+            }
+        }
+
+        // Filter by category
+        function filterByCategory(category) {
+            currentCategory = category;
+
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.closest('.category-btn').classList.add('active');
+
+            filterEmails();
+        }
+
+        // Handle search
+        function handleSearch() {
+            searchQuery = document.getElementById('searchInput').value;
+            filterEmails();
+        }
+
+        // Handle select all
+        function handleSelectAll() {
+            const selectAll = document.getElementById('selectAll');
+            const checkboxes = document.querySelectorAll('.email-item .checkbox');
+            checkboxes.forEach(cb => cb.checked = selectAll.checked);
+        }
+
+        // Email actions
+        async function handleStar(emailId) {
+            console.log('Star email:', emailId);
+            // TODO: Implement star functionality
+        }
+
+        async function handleArchive(emailId) {
+            console.log('Archive email:', emailId);
+            // TODO: Implement archive functionality
+        }
+
+        async function handleDelete(emailId) {
+            if (confirm('Are you sure you want to delete this email?')) {
+                console.log('Delete email:', emailId);
+                // TODO: Implement delete functionality
+            }
+        }
+
+        function toggleFilter() {
+            console.log('Toggle filter');
+            // TODO: Implement advanced filter panel
+        }
+
+        // Utility functions
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function formatEmailTime(dateString) {
+            if (!dateString) return '';
+
+            const date = new Date(dateString);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+
+            if (diffMins < 60) return `${diffMins}m ago`;
+            if (diffHours < 24) return `${diffHours}h ago`;
+            if (diffDays < 7) return `${diffDays}d ago`;
+
+            return formatDate(dateString);
+        }
+    </script>
+</body>
+
+</html>

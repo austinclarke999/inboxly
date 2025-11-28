@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Inboxly</title>
+    <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="./settings.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-content">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Inboxly</h1>
+                        <p>AI Email Assistant</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="./dashboard.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="./inbox.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+                        <path
+                            d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z">
+                        </path>
+                    </svg>
+                    <span>Inbox</span>
+                </a>
+                <a href="./subscriptions.html" class="nav-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                        <line x1="1" y1="10" x2="23" y2="10"></line>
+                    </svg>
+                    <span>Subscriptions</span>
+                </a>
+                <a href="./settings.html" class="nav-item active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M12 1v6m0 6v6m9-9h-6m-6 0H3m15.364 6.364l-4.243-4.243m-6.364 0L3.636 17.364m12.728 0l-4.243-4.243m-6.364 0L3.636 6.636">
+                        </path>
+                    </svg>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="ai-status">
+                <div class="status-card">
+                    <div class="status-content">
+                        <div class="status-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <div class="status-text">
+                            <p>Gemini AI</p>
+                            <p>Active</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!--Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="search-bar">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" placeholder="Search settings...">
+                </div>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <button class="user-menu">
+                        <div class="user-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="user-info">
+                            <p>Loading...</p>
+                            <p>user@example.com</p>
+                        </div>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <div class="page-header">
+                    <div>
+                        <h1 class="page-title">Settings</h1>
+                        <p class="page-subtitle">Manage your account and preferences</p>
+                    </div>
+                </div>
+
+                <!-- Account Section -->
+                <div class="settings-section">
+                    <div class="section-header-icon">
+                        <div class="section-icon primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <h2 class="card-title">Account</h2>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-input" id="userEmail" value="Loading..." disabled>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Display Name</label>
+                        <input type="text" class="form-input" id="userName" value="Loading...">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Member Since</label>
+                        <input type="text" class="form-input" id="memberSince" value="Loading..." disabled>
+                    </div>
+                </div>
+
+                <!-- Notifications Section -->
+                <div class="settings-section">
+                    <div class="section-header-icon">
+                        <div class="section-icon accent">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                        </div>
+                        <h2 class="card-title">Notifications</h2>
+                    </div>
+                    <div class="toggle-setting">
+                        <div class="toggle-info">
+                            <p class="toggle-title">Daily Digest</p>
+                            <p class="toggle-description">Receive a daily summary of your inbox</p>
+                        </div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle-setting">
+                        <div class="toggle-info">
+                            <p class="toggle-title">Weekly Report</p>
+                            <p class="toggle-description">Receive a weekly summary of your inbox</p>
+                        </div>
+                        <div class="toggle-switch active" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                    <div class="toggle-setting">
+                        <div class="toggle-info">
+                            <p class="toggle-title">Subscription Alerts</p>
+                            <p class="toggle-description">Get notified about new subscriptions detected</p>
+                        </div>
+                        <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                </div>
+
+                <!-- Privacy Section -->
+                <div class="settings-section">
+                    <div class="section-header-icon">
+                        <div class="section-icon green">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h2 class="card-title">Privacy</h2>
+                    </div>
+                    <div class="toggle-setting">
+                        <div class="toggle-info">
+                            <p class="toggle-title">Minimal AI Processing</p>
+                            <p class="toggle-description">Minimize data sent to AI models</p>
+                        </div>
+                        <div class="toggle-switch" onclick="this.classList.toggle('active')"></div>
+                    </div>
+                </div>
+
+                <!-- AI Settings Section -->
+                <div class="settings-section">
+                    <div class="section-header-icon">
+                        <div class="section-icon purple">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                        </div>
+                        <h2 class="card-title">AI Settings</h2>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">AI Model</label>
+                        <select class="form-select">
+                            <option selected>Gemini 1.5 Pro (Recommended)</option>
+                            <option>Gemini 1.5 Flash (Faster)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Danger Zone -->
+                <div class="settings-section">
+                    <div class="section-header-icon">
+                        <div class="section-icon danger">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z">
+                                </path>
+                                <path d="M12 9v4"></path>
+                                <path d="M12 17h.01"></path>
+                            </svg>
+                        </div>
+                        <h2 class="card-title">Danger Zone</h2>
+                    </div>
+                    <div class="danger-actions">
+                        <button class="btn btn-danger" onclick="handleLogout()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                <polyline points="16 17 21 12 16 7"></polyline>
+                                <line x1="21" y1="12" x2="9" y2="12"></line>
+                            </svg>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Save Button -->
+                <div class="save-actions">
+                    <button class="btn btn-primary" onclick="handleSaveSettings()">Save Changes</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Logout Confirmation Overlay -->
+    <div class="confirm-overlay" id="confirmOverlay">
+        <div class="confirm-content">
+            <div class="confirm-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+            </div>
+            <h3 class="confirm-title">Logout</h3>
+            <p class="confirm-message">Are you sure you want to logout?</p>
+            <div class="confirm-actions">
+                <button class="btn btn-secondary" onclick="hideLogoutConfirm()">Cancel</button>
+                <button class="btn btn-danger" onclick="confirmLogout()">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .confirm-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .confirm-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .confirm-content {
+            text-align: center;
+            background: rgba(30, 41, 59, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .confirm-overlay.active .confirm-content {
+            transform: scale(1);
+        }
+
+        .confirm-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.5rem;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ef4444;
+        }
+
+        .confirm-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .confirm-title {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .confirm-message {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .confirm-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .confirm-actions .btn {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .confirm-actions .btn-secondary {
+            background: rgba(100, 116, 139, 0.2);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            color: #e2e8f0;
+        }
+
+        .confirm-actions .btn-secondary:hover {
+            background: rgba(100, 116, 139, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .confirm-actions .btn-danger {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            border: none;
+            color: white;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        .confirm-actions .btn-danger:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+        }
+    </style>
+
+    <script src="./api.js"></script>
+    <script>
+        // Global state
+        let currentUser = null;
+
+        // Initialize page
+        window.addEventListener('DOMContentLoaded', async () => {
+            // Require authentication
+            requireAuth();
+
+            try {
+                // Load user information
+                currentUser = await getCurrentUser();
+
+                // Update header user info
+                const userNameEl = document.querySelector('.user-info p:first-child');
+                const userEmailEl = document.querySelector('.user-info p:last-child');
+
+                if (userNameEl && currentUser.name) {
+                    userNameEl.textContent = currentUser.name;
+                }
+                if (userEmailEl && currentUser.email) {
+                    userEmailEl.textContent = currentUser.email;
+                }
+
+                // Update form fields
+                document.getElementById('userEmail').value = currentUser.email || '';
+                document.getElementById('userName').value = currentUser.name || '';
+                document.getElementById('memberSince').value = currentUser.createdAt ? formatDate(currentUser.createdAt) : 'Unknown';
+            } catch (error) {
+                console.error('Initialization error:', error);
+                showError('Failed to load user information');
+            }
+        });
+
+        // Handle save settings
+        function handleSaveSettings() {
+            const userName = document.getElementById('userName').value;
+
+            // TODO: Implement save settings API call
+            console.log('Saving settings:', { userName });
+            showSuccess('Settings saved successfully!');
+        }
+
+        // Handle logout
+        function handleLogout() {
+            document.getElementById('confirmOverlay').classList.add('active');
+        }
+
+        // Hide logout confirmation
+        function hideLogoutConfirm() {
+            document.getElementById('confirmOverlay').classList.remove('active');
+        }
+
+        // Confirm logout
+        function confirmLogout() {
+            logout();
+        }
+    </script>
+</body>
+
+</html>
