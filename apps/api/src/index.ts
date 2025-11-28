@@ -40,8 +40,17 @@ app.use('/api/gemini', geminiRoutes);
 app.use('/api/subscriptions', subscriptionRoutes);
 app.use('/api/unsubscribe', unsubscribeRoutes);
 
-// Health check
+// Health check - Railway uses this endpoint
 app.get('/', async (req, res) => {
+    res.status(200).json({
+        status: 'ok',
+        message: 'Inboxly API is running',
+        timestamp: new Date().toISOString(),
+    });
+});
+
+// Detailed health check with Redis status
+app.get('/health', async (req, res) => {
     try {
         const redisPing = await redisConnection.ping();
         res.json({
@@ -55,6 +64,7 @@ app.get('/', async (req, res) => {
         res.status(500).json({
             status: 'error',
             message: 'API is running, but some services might be down',
+            redis: 'disconnected',
         });
     }
 });
