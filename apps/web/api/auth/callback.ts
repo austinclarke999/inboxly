@@ -102,9 +102,8 @@ export default async function handler(
             update: {},
             create: {
                 userId: user.id,
-                emailNotifications: true,
-                aiAnalysis: true,
-                autoUnsubscribe: false,
+                dailyDigest: true,
+                weeklyDigest: true,
             },
         });
 
