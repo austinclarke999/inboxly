@@ -20,7 +20,7 @@ import redisConnection from './config/redis';
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = parseInt(process.env.PORT || '3000', 10);
 
 // Middleware
 app.use(cors({
@@ -69,7 +69,7 @@ app.get('/health', async (req, res) => {
     }
 });
 
-const server = app.listen(port, () => {
+const server = app.listen(port, '0.0.0.0', () => {
     console.log(`🚀 Server is running on port ${port}`);
     console.log(`📧 Email workers are active`);
     console.log(`🤖 Gemini AI integration enabled`);
