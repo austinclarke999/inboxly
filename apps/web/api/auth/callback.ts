@@ -107,8 +107,8 @@ export default async function handler(
             },
         });
 
-        // Redirect to dashboard with user ID (relative path works since API and frontend are on same domain)
-        res.redirect(`/app/dashboard?userId=${user.id}`);
+        // Redirect to dashboard.html with user ID (for HTML-based app)
+        res.redirect(`/dashboard.html?userId=${user.id}`);
 
     } catch (error: any) {
         console.error('OAuth callback error:', error);
