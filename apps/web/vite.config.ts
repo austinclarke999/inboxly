@@ -8,11 +8,11 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
-        landing: 'public/landing.html',
-        dashboard: 'public/dashboard.html',
-        inbox: 'public/inbox.html',
-        subscriptions: 'public/subscriptions.html',
-        settings: 'public/settings.html',
+        landing: 'landing.html',
+        dashboard: 'dashboard.html',
+        inbox: 'inbox.html',
+        subscriptions: 'subscriptions.html',
+        settings: 'settings.html',
       }
     }
   },
