@@ -112,7 +112,8 @@ export default async function handler(
 
     } catch (error: any) {
         console.error('OAuth callback error:', error);
-        res.redirect('/?error=auth_failed');
+        // Redirect with error details so we can debug
+        res.redirect(`/landing.html?error=${encodeURIComponent(error.message || 'Unknown error')}`);
     } finally {
         await prisma.$disconnect();
     }

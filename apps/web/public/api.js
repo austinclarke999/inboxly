@@ -143,7 +143,7 @@ function requireAuth() {
     console.log('Checking auth...');
     if (!isAuthenticated()) {
         console.log('Not authenticated, redirecting to landing...');
-        // alert('Not authenticated! Redirecting to landing page...');
+        alert('Not authenticated! Redirecting to landing page...');
         window.location.href = '/landing.html';
     } else {
         console.log('Authenticated! User ID:', getUserId());
